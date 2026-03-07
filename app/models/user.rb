@@ -15,14 +15,14 @@ class User < ApplicationRecord
 
   # 3. お名前(全角)は、名字と名前がそれぞれ必須。全角（漢字・ひらがな・カタカナ）での入力が必須
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角（漢字・ひらがな・カタカナ）で入力してください' } do
-    validates :last_name
     validates :first_name
+    validates :last_name
   end
 
   # 4. お名前カナ(全角)は、名字と名前がそれぞれ必須。全角（カタカナ）での入力が必須
   with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' } do
-    validates :last_name_kana
     validates :first_name_kana
+    validates :last_name_kana
   end
 
   # 5. 生年月日が必須
