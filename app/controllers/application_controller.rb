@@ -9,16 +9,16 @@ class ApplicationController < ActionController::Base
       username == 'admin' && password == '2222'
     end
   end
-  
+
   def configure_permitted_parameters
     # の項目を「新規登録(sign_up)」の時に許可する
     devise_parameter_sanitizer.permit(:sign_up, keys: [
-      :nickname, 
-      :last_name, 
-      :first_name, 
-      :last_name_kana, 
-      :first_name_kana, 
-      :birth_date
-    ])
+                                        :nickname,
+                                        :last_name,
+                                        :first_name,
+                                        :last_name_kana,
+                                        :first_name_kana,
+                                        :birth_date
+                                      ])
   end
 end

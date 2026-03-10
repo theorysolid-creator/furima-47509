@@ -14,10 +14,10 @@ class Item < ApplicationRecord
   validates :item_name, :description, :image, presence: true
 
   # ジャンルの選択が「---」の時は保存できないようにする
-  validates :category_id, :condition_id, :postage_id, :prefecture_id, :shipping_date_id, 
-            numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id, :condition_id, :postage_id, :prefecture_id, :shipping_date_id,
+            numericality: { other_than: 1, message: "can't be blank" }
 
   # 価格の範囲設定
-  validates :price, presence: true, 
-            numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, allow_blank: true }
+  validates :price, presence: true,
+                    numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, allow_blank: true }
 end
