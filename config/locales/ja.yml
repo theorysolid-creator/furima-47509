@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      item: 商品
+    attributes:
+      item:
+        item_name: 商品名
+        description: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        postage_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        shipping_date_id: 発送までの日数
+        price: 価格
+
+    errors:
+          messages:
+            blank: を入力してください
+            required: を入力してください
+
+  devise:
+    failure:
+      invalid: "メールアドレスまたはパスワードが違います。"
+      user:
+        invalid: "メールアドレスまたはパスワードが違います。"
