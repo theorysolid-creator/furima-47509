@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new]
 
   def index
-    @items = Item.all
   end
 
   def new
@@ -14,7 +13,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path # 保存できたらトップへ
     else
-      render :new, status: :unprocessable_entity
+      render :new # 保存できなければ出品画面を再表示
     end
   end
 
