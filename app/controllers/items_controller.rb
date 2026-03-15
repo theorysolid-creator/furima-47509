@@ -1,7 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update] # ログアウトならログイン画面へ
-  before_action :set_item, only: [:edit, :update, :show] # 重複を避ける共通処理
-  before_action :move_to_index, only: [:edit, :update] # 権限チェック
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] # ログアウトならログイン画面へ
+  before_action :set_item, only: [:edit, :update, :show, :destroy] # 重複を避ける共通処理
+  before_action :move_to_index, only: [:edit, :update, :destroy] # 権限チェック
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
 
   def index
     @items = Item.order('created_at DESC')
