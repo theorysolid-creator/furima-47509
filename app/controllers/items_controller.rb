@@ -33,7 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # すでに登録されている情報は、@item があれば勝手にフォームに入ります
+    return unless @item.user_id != current_user.id || @item.order.present?
+
+    redirect_to root_path
   end
 
   def update
