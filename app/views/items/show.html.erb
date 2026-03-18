@@ -7,7 +7,7 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
-      <
+      
       <% if @item.order.present? %>
         <div class="sold-out">
           <span>Sold Out!!</span>
@@ -100,7 +100,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
+  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>
